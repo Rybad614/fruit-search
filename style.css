@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  transition: all 1s ease-in;
+}
+
+:focus {
+ background: rgba(198, 134, 16, 0.672);
+ color: white;
+}
+
+body {
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(215,140,103,1) 18%, rgba(252,94,69,1) 50%, rgba(215,140,103,1) 82%, rgba(131,58,180,1) 100%);
+}
+
+input {
+ border: double 5px orange; 
+ background: transparent;
+ position: absolute;
+ margin: auto;
+}
+
+.search-container {
+ margin: auto;
+ width: 50%;
+ padding: 10px;
+}
+.search-container input,
+.search-container .suggestions {
+  position: relative;
+  margin: auto;
+  width: 50%;
+ padding: 10px;
+ text-align: center;
+}
+.search-container input {
+ width: fit-content;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul li:hover {
+ background-color: rgba(0, 0, 0, .2);
+ text-decoration: underline white;
+ cursor: pointer;
+}
