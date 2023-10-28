@@ -13,6 +13,10 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 	// show results for what is typed in search bar
 	function searchHandler(e) {
 		const inputVal = e.target.value;
+		if (!inputVal){
+			suggestions.innerHTML = "";
+			return;
+		}
 		const results = search(inputVal);
 		showSuggestions(results, inputVal);
 	}
@@ -23,10 +27,12 @@ const fruit = ['Apple', 'Apricot', 'Avocado 🥑', 'Banana', 'Bilberry', 'Blackb
 		results.forEach(result => {
 		  const li = document.createElement("li");
 		  li.classList.add("has-suggestions");
-		  let bold = "<b>" + result.slice(0, inputVal.length) + "</b>";
-		  let word = result.slice(inputVal.length);
+		  const start = result.toLowerCase().indexOf(inputVal.toLowerCase());
+		  let bold = "<b>" + result.slice(start, start + inputVal.length) + "</b>";
+		  let word = result.slice(start + inputVal.length);
+		  const previous = result.slice(0, start);
 	  
-		  li.innerHTML = bold + word;
+		  li.innerHTML = previous + bold + word ;
 		  suggestions.appendChild(li);
 		});
 	}
